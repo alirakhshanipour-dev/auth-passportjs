@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.0.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2"
+  },
+  "name": "auth-passportjs",
+  "version": "1.0.0",
+  "description": "this is a project for authentication users with passportjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon node app.js"
+  },
+  "keywords": [
+    "passport",
+    "express",
+    "server"
+  ],
+  "author": "devplus",
+  "license": "ISC",
+  "type": "module"
+}
