@@ -8,6 +8,7 @@ import serveFavicon from "serve-favicon";
 import path from "path";
 import flash from "express-flash";
 import session from "express-session";
+import { errorHandler } from "./utils/errorHandler.js";
 
 config();
 
@@ -47,9 +48,11 @@ app.set("layout", "./layouts/main.ejs");
 
 // Setup Passport
 
-const port = process.env.PORT;
+// Error Handler
+app.use(errorHandler)
 
-// Routers
+// SettingUp Server
+const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`Server Is Running On http://localhost:${port}`);
 });

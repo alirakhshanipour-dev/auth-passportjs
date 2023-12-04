@@ -1,16 +1,12 @@
-import { UserModel } from "../models/user.model.js";
 import Joi from "joi";
 import HttpStatus from "http-status-codes"
 
 
-import Joi from 'joi';
-import { UserModel } from './path-to-your-model';
-
 const userValidationSchema = Joi.object({
     fullName: Joi.string().required().min(3).max(50).trim(),
     username: Joi.string().required().min(3).max(30).trim(),
-    email: Joi.string().email(),
-    phone: Joi.string().allow(''),
+    email: Joi.string().email().allow(null),
+    phone: Joi.string().allow('').allow(null),
     password: Joi.string()
         .required()
         .min(8) // Minimum password length
