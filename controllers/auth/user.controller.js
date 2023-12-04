@@ -5,6 +5,7 @@ import { hashSync } from "bcrypt"
 class UserController {
     async register(req, res, next) {
         try {
+
             const { fullName, username, password } = req.body
             const hashedPassword = hashSync(password, 10)
 
@@ -21,13 +22,14 @@ class UserController {
             const user = await UserModel.create({
                 fullName, username, password: hashedPassword
             })
-            if (user) return res.status(HttpStatus.CREATED).json({
-                statusCode: HttpStatus.CREATED,
-                data: {
-                    message: "user created successfully.",
-                    user
-                }
-            })
+            // if (user) return res.status(HttpStatus.CREATED).json({
+            //     statusCode: HttpStatus.CREATED,
+            //     data: {
+            //         message: "user created successfully.",
+            //         user
+            //     }
+            // })
+            res.redirect('/')
         } catch (error) {
             next(error)
         }
